@@ -51,12 +51,7 @@ router.post(
   "/login",
   [
     body("email").isEmail().withMessage("Valid email is required"),
-    body("password").notEmpty().withMessage("Valid password is required "),
-    body("password")
-      .isLength({ min: 6, max: 10 })
-      .withMessage(
-        "Password must have minimum 6 characters and maximum 10 characters "
-      ),
+    body("password").notEmpty().withMessage("Valid password is required"),
   ],
   validate,
   authController.login
